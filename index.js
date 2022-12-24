@@ -16,7 +16,8 @@ const PORT = 4000;
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: ["https://amir-moveoproject.netlify.app/"],
+    // https://amir-moveoproject.netlify.app/
+    origin: ["http://localhost:3000"],
   },
 });
 
@@ -28,10 +29,6 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
   //   res.json({ test: "test" });
-});
-
-app.get("https://amir-moveoproject.netlify.app/firstRoom", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
 });
 
 io.on("connection", (socket) => {
