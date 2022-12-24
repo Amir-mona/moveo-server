@@ -1,0 +1,7 @@
+{
+  "name": "moveo-server",
+  "version": "1.0.0",
+  "description": "project",
+  "main": "index.js",
+  "license": "MIT"
+}
