@@ -1,16 +1,14 @@
 import cors from "cors";
 import express from "express";
 import http from "http";
-// import mongoose from "mongoose";
+import mongoose from "mongoose";
 import path from "path";
 import { Server } from "socket.io";
 import { fileURLToPath } from "url";
-// import router from "./api/routes.js";
-// import sockets from "./socket/sockets.js";
 
-// await mongoose.connect(
-//   "mongodb+srv://bitfumes123:bitfumes123@cluster0.yk0jpvz.mongodb.net/?retryWrites=true&w=majority"
-// );
+await mongoose.connect(
+  "mongodb+srv://Amirabotaref:Amirabotaref@cluster0.ubdkcxb.mongodb.net/?retryWrites=true&w=majority"
+);
 
 const app = express();
 const PORT = 4000;
@@ -25,17 +23,17 @@ const io = new Server(httpServer, {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// app.use(cors());
+app.use(cors());
+
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
   //   res.json({ test: "test" });
 });
-// app.use("/", router);
 
 io.on("connection", (socket) => {
   //console.log("Connection is ready");
   socket.on("send-code", (data) => {
-    socket.emit("code-from-server", data);
+    socket.broadcast.emit("code-from-server", data);
   });
   socket.on("disconnect", (socket) => {
     console.log("user left");
