@@ -30,6 +30,10 @@ app.get("/", (req, res) => {
   //   res.json({ test: "test" });
 });
 
+app.get("/firstRoom", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+
 io.on("connection", (socket) => {
   //console.log("Connection is ready");
   socket.on("send-code", (data) => {
