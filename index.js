@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
   //   res.json({ test: "test" });
 });
 
-app.get("/firstRoom", (req, res) => {
+app.get("https://amir-moveoproject.netlify.app/firstRoom", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
